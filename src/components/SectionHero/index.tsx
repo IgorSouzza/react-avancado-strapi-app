@@ -5,15 +5,21 @@ import Button from 'components/Button'
 import * as S from './styles'
 
 import { gaEvent } from 'utils/ga'
+import { LogoProps } from 'types/api'
+
 import Container from 'components/Container'
 
 const onClick = () =>
   gaEvent({ action: 'click', category: 'cta', label: 'hero button' })
 
-const SectionHero = () => (
+type Props = {
+  logo: LogoProps
+}
+
+const SectionHero = ({ logo }: Props) => (
   <S.Wrapper>
     <Container>
-      <Logo />
+      <Logo {...logo} />
 
       <S.Content>
         <S.TextBlock>
